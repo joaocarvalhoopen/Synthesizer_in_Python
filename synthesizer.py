@@ -41,20 +41,27 @@
 #
 ###############################################################################
 
-
-
 import numpy as np
 import math
 import random
 import wave
 
-
 bitsPerSample = 16
 channels = 1
 sampleRate = 44100
 volume = 32768
-notesDic = {'C':261.63,'C#':277.18,'D':293.66,'D#':311.13,'E':329.63,'F':349.23,'F#':369.99,'G':392.00,'G#':415.30,'A':440.00,'A#':466.16,'B':493.88}
-
+notesDic = {'C':261.63,
+            'C#':277.18,
+            'D':293.66,
+            'D#':311.13,
+            'E':329.63,
+            'F':349.23,
+            'F#':369.99,
+            'G':392.00,
+            'G#':415.30,
+            'A':440.00,
+            'A#':466.16,
+            'B':493.88}
 
 def writeArrayToWavFilename(signalArray, sampleFreq, destinationWavFilename):
     # Converts the NumPy contiguous array into frames to be written into the file.
@@ -126,7 +133,6 @@ def generate(sound, note, octave, duration):
         return None
     length = math.ceil(duration * sampleRate)
     time = duration
-    # print("time: " + str(time))
     data = np.zeros(length)
     if octave < 1:
         octave = 1
